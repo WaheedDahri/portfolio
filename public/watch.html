@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="watch.css">
+</head>
+<body>
+    <div class="stopwatch">
+        <div id="display" class="wah"><span class="color1">00</span>:00:00</div>
+        <button id="startStop">Start</button>
+        <button id="reset" class="abs">Reset</button>
+    </div>
+    <script>
+let timer;
+let isRunning = false;
+let startTime;
+let elapsedTime = 0;
+
+const display = document.getElementById('display');
+const startStopButton = document.getElementById('startStop');
+const resetButton = document.getElementById('reset');
+
+function updateDisplay(time) {
+    const hours = Math.floor(time / 3600000);
+    const minutes = Math.floor((time % 3600000) / 60000);
+    const seconds = Math.floor((time % 60000) / 1000);
+
+    display.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+function startStop() {
+    if (isRunning) {
+        clearInterval(timer);
+        elapsedTime += Date.now() - startTime;
+        startStopButton.textContent = 'Start';
+    } else {
+        startTime = Date.now();
+        timer = setInterval(() => {
+            updateDisplay(elapsedTime + Date.now() - startTime);
+        }, 1000);
+        startStopButton.textContent = 'Stop';
+    }
+    isRunning = !isRunning;
+}
+
+function reset() {
+    clearInterval(timer);
+    isRunning = false;
+    elapsedTime = 0;
+    display.textContent = '00:00:00';
+    startStopButton.textContent = 'Start';
+}
+
+startStopButton.addEventListener('click', startStop);
+resetButton.addEventListener('click', reset);
+
+    </script>
+</body>
+</html>

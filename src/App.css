@@ -1,0 +1,1304 @@
+
+
+
+
+.homepage-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* .image-container {
+  margin-bottom: 20px;
+  margin-right: 140px;
+  display: flex;
+  justify-content: center;
+  
+} */
+
+/* App.css */
+/* App.css */
+.image-container {
+
+  margin-right: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 160px;
+}
+
+.profile-image {
+  border: 3px solid;
+  
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 0 10px;
+  position: absolute;
+  transition: opacity 0.5s ease;
+}
+
+.previous-profile-image {
+  opacity: 0.5;
+  left: -100px; 
+}
+
+.current-profile-image {
+  opacity: 1;
+  left: 100px; /* Adjust position as needed */
+}
+/* Define the keyframe animation for the net-like background */
+@keyframes netFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Create the net-like background using linear gradients */
+.net-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: netFade 4s infinite;
+  pointer-events: none; /* To ensure the background does not interfere with mouse events */
+  z-index: 1;
+}
+
+
+
+/* .profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5); 
+  border: 4px solid  #b0fc9a; 
+ 
+} */
+
+/* Define the keyframe animation for the circle net background */
+@keyframes netFade {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Create the net-like background using radial gradients */
+.circle-net-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: netFade 4s infinite;
+  pointer-events: none; /* Ensure the background does not interfere with mouse events */
+  z-index: 1; /* Ensure it overlays the video background */
+}
+
+
+/* SettingsMenu.css */
+.settings-menu {
+  position: absolute;
+  top: 40px; /* Adjust according to the settings icon position */
+  left: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.settings-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.text-container {
+  text-align: center;
+  color: #F7FFF7; /* Soft Beige */
+  text-shadow: 2px 2px 4px #1A535C; /* Forest Green */
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 130px;
+}
+
+
+
+.text-container h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  
+}
+
+.text-container p {
+  margin-bottom: -20px;
+  font-size: 1.2rem;
+  
+}
+/* Add these styles to your existing App.css file */
+
+.button5 {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+ background-color: #bcc0bc;
+  color:  black;
+ 
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition:  0.3s ease;
+}
+
+/*this button for Contact us */
+
+.button1 {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color:  #b0fc9a; 
+  color: rgb(43, 39, 39);
+  border: 2px solid rgb(201, 192, 192); 
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.button1 :hover {
+  background-color: transparent;
+}
+
+
+.homepage-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+}
+/* App.css */
+
+/* App.css */
+
+
+
+
+
+
+/* Add these styles to your existing App.css file */
+/* Add this to your App.css file */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typing-animation {
+  overflow: hidden; /* Ensures the text doesn't overflow */
+  /* border-right: .15em solid orange;  */
+  white-space: nowrap; /* Prevents text wrapping */
+  margin: 0 auto; /* Centers the text */
+  letter-spacing: .15em; /* Adjust the spacing between letters */
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; /* Typing animation */
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    /* border-color: orange; */
+  }
+}
+.contact-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;  /* Ensure it appears above other content */
+}
+
+.contact-page-container {
+ 
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px; 
+  height: 500px; 
+  overflow: none; 
+  position: relative;
+  text-align: center;  
+  border: 4px solid  #bcc0bc;
+}
+
+
+
+
+.header{
+  color:  #bcc0bc;
+  margin-right: 160px;
+}
+
+.subheader{
+  color:  #bcc0bc;
+  margin-bottom: 60px;
+  margin-top: 50px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Add space between items */
+  margin-bottom: 20px; /* Adjust the spacing between items */
+}
+.contact-list li span {
+  /* color: #333; */
+  color: #bcc0bc;  /* Set the color of the paragraph text */
+  cursor: pointer;
+  font-weight: bold;
+}
+.contact-list li span :hover{
+  color:  #41ff0d; /* Set the color of the paragraph text */
+  
+}
+
+
+
+.contact-icon {
+  margin-right: 10px; 
+  color:  #bcc0bc;
+
+}
+.contact-icon :hover {
+  border-radius: 50%; 
+  background-color: #41ff0d;
+
+}
+
+
+
+
+
+.contact-list li span a {
+  color: #41ff0d; /* Inherit color from parent (paragraph text color) */
+  margin-bottom: 50px;
+  text-decoration: none; /* Remove underline */
+ 
+}
+
+/* App.css */
+
+
+
+
+
+
+
+.button {
+  margin-top: 60px;
+  padding: 10px 20px;
+  background-color: transparent; 
+  color:  #bcc0bc;
+  /* color: rgb(5, 4, 4); */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 70px;
+}
+
+
+/* .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+} */
+
+.good {
+  margin-right: 180px;
+  font-weight: 900;
+  cursor: pointer;
+ 
+ 
+}
+.live{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* .button4 {
+  background-color: black; 
+  color: rgb(194, 9, 9); 
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease; 
+  margin-top: 50px;
+
+}
+
+.button4:hover {
+  background-color: rgb(5, 233, 5); /* Set hover color */
+ */
+
+hr{
+  color: black;
+}
+.imy{
+  color: #41ff0d;
+}
+
+.day-mode {
+  background-color: transparent; /* Day background color */
+}
+
+
+.night-mode {
+  background-color: #000000; /* Night background color */
+}
+.fa-arrow-right {
+  position: relative;
+  display: inline-block;
+  width: 24px; /* Adjust the width of the arrow */
+  height: 24px; /* Adjust the height of the arrow */
+  
+}
+.fa-arrow-right :hover{
+  color: #41ff0d;
+  font-weight: bold;
+}
+
+.fa-arrow-right::before {
+  
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px; /* Adjust the width of the tail */
+  height: 50px; /* Adjust the height of the tail */
+  background-color: currentColor; /* Uses the color of the arrow */
+  transform: translateY(-50%) rotate(45deg); /* Rotate the tail */
+}
+
+/*it is for homepage next arror title*/
+.tooltip {
+  position: absolute;
+  top: -30px; /* Adjust this value to position the tooltip properly */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+  font-size: 12px;
+  pointer-events: none; /* Ensures that the tooltip does not interfere with mouse events */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.button:hover .tooltip {
+  opacity: 1;
+}
+ 
+ 
+/* styles.css */
+
+
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.contact-icon-container,
+.contact-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* .contact-icon-tooltip, */
+.contact-text-tooltip {
+  visibility: hidden;
+  width: auto;
+  background-color: black;
+ 
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;  
+}
+
+.contact-icon-container:hover .contact-icon-tooltip,
+.contact-text-container:hover .contact-text-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* .contact-icon-tooltip::after, */
+.contact-text-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color:  #41ff0d;  
+}
+
+.contact-text-tooltip::after {
+  border-color: yellow transparent transparent transparent; /* Match the background color of the tooltip */
+  border-top-color: black; /* Set the border color of the tooltip arrow to black */
+}
+
+.highlight{
+  color: #41ff0d;
+}
+
+
+
+.highlight {
+  display: inline-block;
+}
+
+.typing-animation {
+  animation: typing 3s steps(20, end), blink-caret .75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid orange;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  /* 50% { border-color: orange; } */
+}
+
+
+
+
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  /* Other styles */
+}
+
+.contact-icon-container {
+  margin-right: 0.5em;
+  position: relative;
+  /* Other styles */
+}
+
+
+
+.contact-icon-tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: black;
+  color: black;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  top: -1.5em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  /* Other styles */
+}
+
+.contact-icon-container:hover .contact-icon-tooltip,
+.contact-icon-container:focus .contact-icon-tooltip {
+  visibility: visible;
+}
+
+.contact-text-container {
+  display: flex;
+  flex-direction: column;
+  /* Other styles */
+}
+
+
+
+.copy-button {
+  background: none;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+  /* Other styles */
+}
+
+.button-back {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 0.25em;
+  /* Other styles */
+}
+.aria-label{
+  color: black;
+}
+
+
+
+
+
+
+.day-icon,
+.night-icon {
+  color: white;
+  margin-left: 390px;
+}
+
+.contact-text-tooltip {
+  font-size: 14px;
+  color: #888;
+  cursor: pointer; /* Add cursor pointer */
+}
+
+/*icon rotation*/
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.day-icon, .night-icon {
+  animation: rotate 4s linear infinite; /* Adjust the duration and timing function as needed */
+  cursor: pointer;
+}
+
+
+.boxes-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.box {
+  
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d; /* Ensure child elements maintain their 3D position */
+}
+
+/* .box1, .box2 {
+  width: 45%;
+} */
+
+/* Apply 3D transformation to the container */
+/* .about-page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff7300, #ffd700, #ff7300, #ffd700, #ff7300, #ffd700, #ff7300); 
+  opacity: 0.2; 
+  transform: rotateY(30deg) translateZ(-200px);
+}
+.about-page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #000000, #adadab, #000000, #aaa9a6, #000000, #a1a19e, #000000); 
+  opacity: 0.5;
+} */
+
+
+/* Responsive design: Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .box1, .box2 {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
+
+.homepage-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage-container.slide-out {
+  animation: slideOut 0.9s forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.paused .background {
+  animation-play-state: paused;
+}
+
+
+
+/* 
+@keyframes rotateBackground {
+  from {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+} */
+
+/* Optional: Adjust background styles */
+
+
+
+
+
+/*  */
+
+
+.about-page-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxes-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.box {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  border-color:  rgb(255, 123, 0);
+  transition: all 0.3s ease;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-width: 3px;
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: top 0.9s ease;
+  z-index: -1;
+}
+
+.box:hover::after {
+  top: 0;
+}
+
+.box1, .box2 {
+  padding: 20px;
+  width: 500px;
+  margin-right: 50px;
+  height: 380px;
+  margin-top: 30px;
+  padding-bottom: 50px;
+}
+
+.btn1, .btn2 {
+  margin-top: 10px;
+  margin-left: 200px;
+  padding: 10px 20px;
+  background-color: rgb(255, 123, 0);
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(255, 123, 0);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  z-index: 2;
+  font-size: 18px;
+}
+
+.nav-button.left {
+  left: 10px;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.nav-button.right {
+  right: 10px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+  z-index: 5;
+  display: none;
+}
+
+.overlay.visible {
+  display: block;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  margin-top: 20px;
+}
+
+.abc2 {
+  color: rgb(255, 123, 0);
+  font-weight: bold;
+  text-shadow: rgb(255, 123, 0);
+  margin-bottom: -20px;
+}
+.abc1 {
+  color: rgb(255, 123, 0);
+  font-weight: bold;
+  text-shadow: rgb(255, 123, 0);
+
+}
+
+span {
+  color: rgb(255, 123, 0);
+}
+
+.wah {
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.p {
+  font-weight: bold;
+  margin-top: 0;
+  cursor: pointer;
+}
+
+.p2 {
+  font-size: smaller;
+  cursor: pointer;
+}
+
+.btn2 {
+  margin-right: 1000px;
+}
+.btn1{
+  cursor: pointer;
+}
+
+ .btn5{
+  padding: 10px 20px;
+  margin-left: 20px;
+ } 
+  
+span6{
+  color: #000000;
+}
+  
+/* ProjectsPage.css */
+/* src/ProjectPage.css */
+.project-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-box {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.project-box:hover {
+  transform: scale(1.05);
+}
+
+.project-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+ /* App.css */
+.settings-icon {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  margin-top: 10px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000; /* Ensure the icon is on top of other elements */
+}
+
+/* Add other necessary styles */
+ 
+/* SettingsMenu.css */
+.settings-menu {
+  position: absolute;
+  top: 40px; /* Adjust according to the settings icon position */
+  left: 10px;
+  background-color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.settings-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-menu ul li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.settings-menu ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.settings-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.settings-icon:hover {
+  color: #000;
+}
+
+  
+ /* src/ThreeBoxes.css */
+
+ .container6 {
+  display: flex;
+  justify-content: space-between;
+  /* Set margin */
+  /* Set border radius */
+}
+
+
+
+
+
+/* 
+.box6 {
+  width: 450px;
+  height: 250px;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 3px solid  rgb(255, 123, 0);
+  padding: 20px;
+  margin-bottom: -10px;
+} */
+
+.box6 {
+  width: 450px;
+  height: 250px;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 100px;
+  border-radius: 5px; /* Slight rounding on all corners */
+  
+  border: 3px solid rgb(255, 123, 0);
+  padding: 20px;
+  margin-bottom: -10px;
+  position: relative;
+  background-color:  transparent; /* Semi-transparent background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+ 
+}
+
+.box6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px; /* Width of the curled corner */
+  height: 40px; /* Height of the curled corner */
+  background-color: black; /* Same semi-transparent background */
+  border: 3px solid rgb(255, 123, 0);
+  border-top: none;
+  border-right: none;
+  border-radius: 0 0 0 5px; /* Rounding for the curl */
+  transform: rotate(45deg); /* Rotate to create the curl effect */
+  transform-origin: bottom left; /* Set the origin for the rotation */
+}
+
+.box6::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: top 0.9s ease;
+  z-index: -1;
+}
+
+.box6:hover::after {
+  top: 0;
+}
+
+/* Define the keyframes for the background color animation */
+@keyframes backgroundMove {
+  0% {
+    background-position: top;
+  }
+  100% {
+    background-position: bottom;
+  }
+}
+
+
+
+
+
+
+
+
+/* App.css */
+
+.abcr{
+  color:   rgb(255, 123, 0);
+}
+
+
+
+
+/* resume image code */
+
+.image1-container, .image2-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure the image is above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-image {
+ width: 555px;
+ height: 445px;
+ margin-top: -210px;
+ margin-left: -300px;
+}
+.centered-image2 {
+  width: 470px;
+  height: 615px;
+  margin-top: -300px;
+  margin-left: -250px;
+  
+ }
+
+.overlay.visible {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+  z-index: 999; /* Ensure the overlay is just below the image */
+}
+
+.close-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color:   rgb(219, 215, 215);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001;
+  margin-top: 9px;
+}
+.close-button:hover{
+  background-color:  white;
+}
+
+.close-button:before {
+  content: '✕';
+  font-size: 20px;
+  line-height: 1;
+}
+
+.close-button1 {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color:   white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001;
+  margin-top: 9px;
+}
+.close-button1:hover{
+  background-color:  rgb(219, 215, 215);
+}
+
+.close-button1:before {
+  content: '✕';
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+
+/* src/App.css */
+
+
+
+.container6 {
+  display: flex;
+  gap: 10px; /* Add gap if needed between boxes */
+
+
+}
+
+
+
+.container10 {
+  position: relative;
+
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+ 
+
+
+}
+
+.container10 video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+ z-index: -1; /* Place the video behind other content */
+
+}
+
+.pro1 {
+  position: relative;
+  z-index: 1; /* Ensure the text appears above the video */
+  margin-left: 30px;
+}
+
+.container-group {
+  position: relative;
+  z-index: 1; /* Ensure the boxes appear above the video */
+ 
+
+
+}
+
+.wah12{
+  cursor: pointer;
+  background-color:   rgb(255, 123, 0);
+}
+
+.imy {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+  color:   rgb(255, 123, 0);
+}
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

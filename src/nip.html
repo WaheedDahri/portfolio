@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Season Finder</title>
+  </head>
+  <body>
+  
+  
+    <script>
+//  impo code project
+import { useState, useEffect } from 'react';
+import "./App.css";
+
+function ChatApp() {
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [userHasSentMessage, setUserHasSentMessage] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+
+  // Function to add a new message to the chat
+  const addMessage = (message) => {
+    setMessages(prevMessages => [...prevMessages, { message, timestamp: new Date().toLocaleTimeString() }]);
+  };
+
+  // Simulate receiving new messages
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!userHasSentMessage) {
+        setIsTyping(true);
+        setTimeout(() => {
+          addMessage(`shafique: New message received`);
+          setIsTyping(false);
+        }, 10000); // Simulate typing delay before message is received
+      }
+    }, 10000); // Add a new message every 20 seconds
+
+    return () => clearInterval(interval);
+  }, [userHasSentMessage]);
+
+  // Function to handle input change
+  const handleChange = (event) => {
+    setNewMessage(event.target.value);
+  };
+
+  // Function to handle form submission (sending a message)
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (newMessage.trim() !== '') {
+      addMessage(`You: ${newMessage}`);
+      setNewMessage('');
+      setUserHasSentMessage(true);
+      // Reset the userHasSentMessage state after 10 seconds
+      setTimeout(() => {
+        setUserHasSentMessage(false);
+      }, 10000);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Chat App</h1>
+      {isTyping && <div>shafique is typing...</div>}
+      <div aria-live="polite" aria-atomic="true" style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '10px' }}>
+        {messages.map((msg, index) => (
+          <div key={index}>
+             <span>{msg.message}</span><br />
+            <span>{msg.timestamp}</span>
+          </div>
+        ))}
+      </div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={newMessage} onChange={handleChange} />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  );
+}
+
+export default ChatApp;
+
+    </script>
+    
+  
+  </body>
+  </html>
+  

@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <h1><b>Game Start...</b></h1>
+    <div class="setup">
+        <h1>Tic Tac Toe</h1> <br><br><br>
+        <label for="player1"><b>Player 1:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" id="player1" class="input" placeholder="Enter Player 1 Name"> <br><br><br><br>
+        <label for="player2"><b>Player 2:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" id="player2" class="input" placeholder="Enter Player 2 Name"><br><br><br><br>
+        <button id="start-game" class="btn1" disabled>Start Game</button><br><br>
+        <h3 class="xyz">Rule</h3>
+        <p class="xyz">both you have 5 seconds you have to click in cell otherwise against player will be winner</p>
+    </div>
+    <div class="game hidden">
+        <h1>Tic Tac Toe</h1>
+        <div class="scoreboard">
+            <div class="score">
+                <span id="player1-name"></span>: <span id="player1-score">0</span>
+            </div>
+            <div class="score">
+                <span id="player2-name"></span>: <span id="player2-score">0</span>
+            </div>
+        </div>
+        <div class="game-board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <button id="reset-button" class="btn2" disabled>Reset Game</button>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cells = document.querySelectorAll('.cell');
+        const resetButton = document.getElementById('reset-button');
+        const startGameButton = document.getElementById('start-game');
+        const showScoreButton = document.getElementById('show-score');
+        const setup = document.querySelector('.setup');
+        const game = document.querySelector('.game');
+        const player1NameInput = document.getElementById('player1');
+        const player2NameInput = document.getElementById('player2');
+        const player1NameSpan = document.getElementById('player1-name');
+        const player2NameSpan = document.getElementById('player2-name');
+        const player1ScoreSpan = document.getElementById('player1-score');
+        const player2ScoreSpan = document.getElementById('player2-score');
+        let currentPlayer = 'X';
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let gameActive = true;
+        let player1Name = '';
+        let player2Name = '';
+        let playerNames = {};
+        let playerScores = { 'X': 0, 'O': 0 };
+        let turnTimer;
+        const turnTimeout = 5000; // 5 seconds
+
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        const checkWin = () => {
+            for (let condition of winningConditions) {
+                const [a, b, c] = condition;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    gameActive = false;
+                    playerScores[currentPlayer] += 5;
+                    updateScoreboard();
+                    alert(`Player ${playerNames[currentPlayer]} has won!`);
+                    resetButton.disabled = false; // Enable reset button after alert
+                    return true;
+                }
+            }
+            if (!board.includes('')) {
+                gameActive = false;
+                playerScores['X'] -= 1;
+                playerScores['O'] -= 1;
+                updateScoreboard();
+                alert('Game is a draw!');
+                resetButton.disabled = false; // Enable reset button after alert
+                return true;
+            }
+            return false;
+        };
+
+        const handleClick = (e) => {
+            const index = e.target.getAttribute('data-index');
+            if (board[index] !== '' || !gameActive) return;
+            board[index] = currentPlayer;
+            e.target.innerText = currentPlayer;
+            if (checkWin()) return;
+            resetTimer();
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            startTurnTimer();
+        };
+
+        const resetTimer = () => {
+            clearTimeout(turnTimer);
+        };
+
+        const startTurnTimer = () => {
+            resetTimer();
+            turnTimer = setTimeout(() => {
+                gameActive = false;
+                const otherPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                playerScores[otherPlayer] += 5;
+                updateScoreboard();
+                alert(`${playerNames[otherPlayer]} congratulations you wins! ${playerNames[currentPlayer]} took too long.`);
+                resetButton.disabled = false; // Enable reset button after alert
+            }, turnTimeout);
+        };
+
+        const resetGame = () => {
+            board = ['', '', '', '', '', '', '', '', ''];
+            cells.forEach(cell => cell.innerText = '');
+            currentPlayer = 'X';
+            gameActive = true;
+            resetButton.disabled = true; // Disable reset button after reset
+            resetTimer();
+        };
+
+        const updateScoreboard = () => {
+            player1ScoreSpan.innerText = playerScores['X'];
+            player2ScoreSpan.innerText = playerScores['O'];
+        };
+
+        const updateStartButton = () => {
+            if (player1NameInput.value.trim() !== '' && player2NameInput.value.trim() !== '') {
+                startGameButton.disabled = false;
+            } else {
+                startGameButton.disabled = true;
+            }
+        };
+
+        const startGame = () => {
+            player1Name = player1NameInput.value.trim() || 'Player 1';
+            player2Name = player2NameInput.value.trim() || 'Player 2';
+            playerNames = {
+                'X': player1Name,
+                'O': player2Name
+            };
+            player1NameSpan.innerText = player1Name;
+            player2NameSpan.innerText = player2Name;
+            setup.classList.add('hidden');
+            game.classList.remove('hidden');
+            startTurnTimer(); // Start the turn timer for player 1
+        };
+
+        player1NameInput.addEventListener('input', updateStartButton);
+        player2NameInput.addEventListener('input', updateStartButton);
+        cells.forEach(cell => cell.addEventListener('click', handleClick));
+        resetButton.addEventListener('click', resetGame);
+        startGameButton.addEventListener('click', startGame);
+        showScoreButton.addEventListener('click', updateScoreboard);
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* styles.css */
+
+/* Basic styles for the body and sections */
+/* nav.css */
+
+/* Basic styles for the body and sections */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  section {
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Navigation bar styles */
+  #navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    margin-top: 20px;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-item {
+    margin: 0 15px;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    transition: color 0.3s ease;
+    font-weight: bolder;
+  }
+  
+  /* Hover effect for nav items */
+  .nav-item a:hover {
+    color:rgba(240, 0, 160, 0.836);
+  }
+  
+  /* Change background color when scrolled */
+  .scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  #home {
+
+  }
+  
+  #about {
+    background-color: lightblue;
+  }
+  
+  #services {
+    background-color: lightgreen;
+  }
+  
+  #contact {
+    background-color: lightgoldenrodyellow;
+  }
+  
+  .heading{
+    margin-left: 350px;
+    margin-top: 200px;
+    color: rgba(240, 0, 160, 0.836);
+    font-weight: 900;
+    font-size: larger;
+    border-color: black;
+    border-width: 2px solid;
+    
+}

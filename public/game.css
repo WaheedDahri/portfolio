@@ -1,0 +1,93 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.hidden {
+    display: none;
+}
+
+.setup, .game {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: 500px;
+}
+.xyz{
+    color: red;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+    animation: backgroundAnimation 10s infinite;
+    height: 300px;
+    margin-bottom: 40px;
+    border-color: black;
+    
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cell:hover {
+    background: black;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-color: #ff9a9e; }
+    25% { background-color: #c7340b; }
+    50% { background-color: #fbc2eb; }
+    75% { background-color: #a18cd1; }
+    100% { background-color: #ff9a9e; }
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.score {
+    font-size: 18px;
+}
+
+.btn2{
+    padding: 8px;
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.btn2:hover{
+    color: white;
+    background-color: black;
+}
+.btn1{
+    padding: 8px;
+    cursor: pointer;
+    background-color: aqua;
+}
+.btn1:hover{
+    color: white;
+    background-color: black;
+}
+.input{
+    width: 200px;
+    height: 30px;
+}
